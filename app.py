@@ -4,7 +4,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 
 # Set page configuration
-st.set_page_config(page_title="Health Assistant",
+st.set_page_config(page_title="Malaria in Pregnancy Prediction",
                    layout="wide",
                    page_icon="🧑‍⚕️")
 
@@ -27,34 +27,41 @@ diabetes_model = pickle.load(open(f'{working_dir}/saved_models/malariamodel.sav'
 
 # Diabetes Prediction Page
     # page title
-st.title('Malaria Prediction using ML')
+st.title('Malaria in Pregnancy Prediction using Machine Learning')
 
     # getting the input data from the user
 col1, col2, col3 = st.columns(3)
 
 with col1:
-        Pregnancies = st.text_input('Number of Pregnancies')
-
+        age = st.text_input('Age')
 with col2:
-        Glucose = st.text_input('Glucose Level')
-
+        gravida = st.text_input('Gravida')
 with col3:
-        BloodPressure = st.text_input('Blood Pressure value')
-
+        gestationalage= st.text_input('GestAge')
 with col1:
-        SkinThickness = st.text_input('Skin Thickness value')
-
+        pastmalaria = st.text_input('PastMalaria')
 with col2:
-        Insulin = st.text_input('Insulin Level')
-
+        area = st.text_input('Area')
 with col3:
-        BMI = st.text_input('BMI value')
-
+        fever = st.text_input('Fever')
 with col1:
-        DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
-
+        bodyaches= st.text_input('bodyaches')
 with col2:
-        Age = st.text_input('Age of the Person')
+        chills = st.text_input('Age of the Person')
+with col3:
+        difficulty = st.text_input('difficulty')
+with col1:
+        highfever = st.text_input('high fever')
+with col2:
+        profuse = st.text_input('Profuse Sweating')
+with col3:
+        vomiting = st.text_input('Vomiting')
+with col1:
+        severeheadache = st.text_input('Severe Headache')
+with col2:
+        severechills = st.text_input('Severe chills')
+with col3:
+        howoften = st.text_input('How often')
 
 
     # code for Prediction
@@ -64,16 +71,16 @@ diab_diagnosis = ''
 
 if st.button('Malaria Test Result'):
 
-        user_input = [Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin,
-                      BMI, DiabetesPedigreeFunction, Age]
+        user_input = [age, gravida, gestationalage, pastmalaria, area, fever, bodyaches, chills, difficulty, highfever, profuse, vomiting, severeheadache, severechills, howoften]
 
         user_input = [float(x) for x in user_input]
 
-        diab_prediction = malariamodel.predict([user_input])
+        malariaprediction = malariamodel.predict([user_input])
 
-        if diab_prediction[0] == 1:
-            diab_diagnosis = 'The person is diabetic'
+        if (prediction[0] == 0):
+          print ("Congrats, you are free!")
+        elif (prediction[0]) == 1:
+          print("You might have malaria")
         else:
-            diab_diagnosis = 'The person is not diabetic'
-
-st.success(diab_diagnosis)
+          print("You really have malaria")
+st.success(malariadiagnosis)
