@@ -76,4 +76,4 @@ if st.button('Malaria Test Result'):
         else:
             diab_diagnosis = 'The person is not diabetic'
 
-    st.success(diab_diagnosis)
+st.success(diab_diagnosis)
