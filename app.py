@@ -27,7 +27,7 @@ diabetes_model = pickle.load(open(f'{working_dir}/saved_models/malariaodel.sav',
 
 # Diabetes Prediction Page
     # page title
-  st.title('Malaria Prediction using ML')
+st.title('Malaria Prediction using ML')
 
     # getting the input data from the user
   col1, col2, col3 = st.columns(3)
