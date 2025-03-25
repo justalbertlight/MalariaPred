@@ -65,7 +65,7 @@ with col3:
 
 
     # code for Prediction
-diab_diagnosis = ''
+malariadiagnosis = ''
 
     # creating a button for Prediction
 
