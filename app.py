@@ -14,7 +14,7 @@ working_dir = os.path.dirname(os.path.abspath(__file__))
 
 # loading the saved models
 
-diabetes_model = pickle.load(open(f'{working_dir}/saved_models/malariaodel.sav', 'rb'))
+diabetes_model = pickle.load(open(f'{working_dir}/saved_models/malariamodel.sav', 'rb'))
 
 #heart_disease_model = pickle.load(open(f'{working_dir}/saved_models/heart_disease_model.sav', 'rb'))
 
@@ -30,46 +30,46 @@ diabetes_model = pickle.load(open(f'{working_dir}/saved_models/malariaodel.sav',
 st.title('Malaria Prediction using ML')
 
     # getting the input data from the user
-  col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns(3)
 
-  with col1:
+with col1:
         Pregnancies = st.text_input('Number of Pregnancies')
 
-  with col2:
+with col2:
         Glucose = st.text_input('Glucose Level')
 
-  with col3:
+with col3:
         BloodPressure = st.text_input('Blood Pressure value')
 
-  with col1:
+with col1:
         SkinThickness = st.text_input('Skin Thickness value')
 
-  with col2:
+with col2:
         Insulin = st.text_input('Insulin Level')
 
-  with col3:
+with col3:
         BMI = st.text_input('BMI value')
 
-  with col1:
+with col1:
         DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
 
-  with col2:
+with col2:
         Age = st.text_input('Age of the Person')
 
 
     # code for Prediction
-    diab_diagnosis = ''
+diab_diagnosis = ''
 
     # creating a button for Prediction
 
-    if st.button('Diabetes Test Result'):
+if st.button('Malaria Test Result'):
 
         user_input = [Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin,
                       BMI, DiabetesPedigreeFunction, Age]
 
         user_input = [float(x) for x in user_input]
 
-        diab_prediction = diabetes_model.predict([user_input])
+        diab_prediction = malariamodel.predict([user_input])
 
         if diab_prediction[0] == 1:
             diab_diagnosis = 'The person is diabetic'
