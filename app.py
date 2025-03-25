@@ -82,6 +82,8 @@ if st.button('Malaria Test Result'):
           malariadiagnosis = "Congrats, you are free!"
         elif (prediction[0]) == 1:
           malariadiagnosis = "You might have malaria"
-        else:
+        elif (prediction[0] == 2:
           malariadiagnosis = "You really have malaria"
+        else:
+          malariadiagnosis = "There is an error somewhere"
 st.success(malariadiagnosis)
