@@ -79,7 +79,7 @@ if st.button('Malaria Test Result'):
         #print(malariadiagnosis)
 
 
-        if prediction[0] = 0:
+        if prediction[0] == 0:
           malariadiagnosis = "Congrats, you are free!"
         elif prediction[0] == 1:
           malariadiagnosis = "You might have malaria"
