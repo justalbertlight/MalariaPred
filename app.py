@@ -78,11 +78,11 @@ if st.button('Malaria Test Result'):
         prediction = malariamodel.predict([user_input])
         #print(malariadiagnosis)
 
-        if (prediction[0] == 0):
+        if prediction[0] == 0:
           malariadiagnosis = "Congrats, you are free!"
-        elif (prediction[0] == 1):
+        elif prediction[0] == 1:
           malariadiagnosis = "You might have malaria"
-        elif (prediction[0] == 2):
+        elif prediction[0] == 2:
           malariadiagnosis = "You really have malaria"
         else:
           malariadiagnosis = "There is an error somewhere"
