@@ -76,6 +76,7 @@ if st.button('Malaria Test Result'):
         user_input = [float(x) for x in user_input]
 
         prediction = malariamodel.predict([user_input])
+        st.write(user_input)
         st.write(prediction[0])
 
 
