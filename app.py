@@ -6,7 +6,7 @@ from streamlit_option_menu import option_menu
 # Set page configuration
 st.set_page_config(page_title="Malaria in Pregnancy Prediction",
                    layout="wide",
-                   page_icon="🧑‍⚕️")
+                   page_icon="🤰")
 
     
 # getting the working directory of the main.py
@@ -76,7 +76,7 @@ if st.button('Malaria Test Result'):
         user_input = [float(x) for x in user_input]
 
         prediction = malariamodel.predict([user_input])
-        print(prediction)
+        st.write(prediction[0])
 
 
         if prediction[0] == 0:
