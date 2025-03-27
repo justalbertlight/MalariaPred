@@ -73,11 +73,10 @@ if st.button('Malaria Test Result'):
 
         inputdata = [age, gravida, gestationalage, pastmalaria, area, fever, bodyaches, chills, difficulty, highfever, profuse, vomiting, severeheadache, severechills, howoften]
 
-        inputdata = [float(x) for x in user_input]
+        #inputdata = [float(x) for x in user_input]
 
-        prediction = malariamodel.predict([inputdata])
-        st.write(inputdata)
-        st.write(prediction[0])
+        #This will no longer be the prediction
+  .     #prediction = malariamodel.predict([inputdata])
 
 
 
@@ -90,7 +89,7 @@ if st.button('Malaria Test Result'):
 #standardising the input data
        standardisedinput = scaler.transform(inputdatareshape)
 
-       print (standardisedinput)
+       st.write standardisedinput
 
        prediction = classifier.predict(standardisedinput)
 
