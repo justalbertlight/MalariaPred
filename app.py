@@ -81,21 +81,10 @@ if st.button('Malaria Test Result'):
 
         inputdata = [age, gravida, gestationalage, pastmalaria, area, fever, bodyaches, chills, difficulty, highfever, profuse, vomiting, severeheadache, severechills, howoften]
 
-        #inputdata = [float(x) for x in user_input]
+        inputdata = [float(x) for x in inputdata]
 
-        #This will no longer be the prediction
-        #changng the input data to numpy array
-        inputdatanumpyarray = np.asarray(inputdata)
-
-        #reshape the array as we predict one instance
-        inputdatareshape = inputdatanumpyarray.reshape(1,-1)
-
-        #standardising the input data
-        standardisedinput = scaler.transform(inputdatareshape)
-
-        st.write(standardisedinput)
-
-        prediction = classifier.predict(standardisedinput)
+        
+        prediction = malariamodel.predict([inputdata])
 
         st.write(prediction)
 
