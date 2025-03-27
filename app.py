@@ -85,11 +85,11 @@ if st.button('Malaria Test Result'):
         #standardising the input data
         standardisedinput = scaler.transform(inputdatareshape)
 
-        st.write standardisedinput
+        st.write(standardisedinput)
 
         prediction = classifier.predict(standardisedinput)
 
-        st.write prediction
+        st.write(prediction)
 
         if prediction[0] == 0:
           malariadiagnosis = "Congrats, you are free!"
