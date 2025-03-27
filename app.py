@@ -83,10 +83,10 @@ if st.button('Malaria Test Result'):
        #changng the input data to numpy array
        inputdatanumpyarray = np.asarray(inputdata)
 
-#reshape the array as we predict one instance
+       #reshape the array as we predict one instance
        inputdatareshape = inputdatanumpyarray.reshape(1,-1)
 
-#standardising the input data
+       #standardising the input data
        standardisedinput = scaler.transform(inputdatareshape)
 
        st.write standardisedinput
@@ -95,21 +95,13 @@ if st.button('Malaria Test Result'):
 
        print(prediction)
 
-#if (prediction[0]) == 0:
- # print ("Congrats, you are free!")
-#elif (prediction[0]) == 1:
-#  print("You might have malaria")
-#elif (prediction[0]) == 2:
-#  print("You really have malaria")
-# else: print ("There might be an error")
 
 
         if prediction[0] == 0:
           malariadiagnosis = "Congrats, you are free!"
         elif prediction[0] == 1:
           malariadiagnosis = "You might have malaria"
-        elif prediction[0] == 2:
-          malariadiagnosis = "You really have malaria"
         else:
-          malariadiagnosis = "There is an error somewhere"
+          malariadiagnosis = "You really have malaria"
+       
 st.success(malariadiagnosis)
