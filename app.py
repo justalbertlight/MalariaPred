@@ -76,8 +76,7 @@ if st.button('Malaria Test Result'):
         #inputdata = [float(x) for x in user_input]
 
         #This will no longer be the prediction
-  .     #prediction = malariamodel.predict([inputdata])
-
+  .     # 
 
 
        #changng the input data to numpy array
