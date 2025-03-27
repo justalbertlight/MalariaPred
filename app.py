@@ -71,13 +71,38 @@ malariadiagnosis = ''
 
 if st.button('Malaria Test Result'):
 
-        user_input = [age, gravida, gestationalage, pastmalaria, area, fever, bodyaches, chills, difficulty, highfever, profuse, vomiting, severeheadache, severechills, howoften]
+        inputdata = [age, gravida, gestationalage, pastmalaria, area, fever, bodyaches, chills, difficulty, highfever, profuse, vomiting, severeheadache, severechills, howoften]
 
-        user_input = [float(x) for x in user_input]
+        inputdata = [float(x) for x in user_input]
 
-        prediction = malariamodel.predict([user_input])
-        st.write(user_input)
+        prediction = malariamodel.predict([inputdata])
+        st.write(inputdata)
         st.write(prediction[0])
+
+
+
+       #changng the input data to numpy array
+       inputdatanumpyarray = np.asarray(inputdata)
+
+#reshape the array as we predict one instance
+       inputdatareshape = inputdatanumpyarray.reshape(1,-1)
+
+#standardising the input data
+       standardisedinput = scaler.transform(inputdatareshape)
+
+       print (standardisedinput)
+
+       prediction = classifier.predict(standardisedinput)
+
+       print(prediction)
+
+#if (prediction[0]) == 0:
+ # print ("Congrats, you are free!")
+#elif (prediction[0]) == 1:
+#  print("You might have malaria")
+#elif (prediction[0]) == 2:
+#  print("You really have malaria")
+# else: print ("There might be an error")
 
 
         if prediction[0] == 0:
