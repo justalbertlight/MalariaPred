@@ -76,26 +76,20 @@ if st.button('Malaria Test Result'):
         #inputdata = [float(x) for x in user_input]
 
         #This will no longer be the prediction
+        #changng the input data to numpy array
+        inputdatanumpyarray = np.asarray(inputdata)
 
+        #reshape the array as we predict one instance
+        inputdatareshape = inputdatanumpyarray.reshape(1,-1)
 
+        #standardising the input data
+        standardisedinput = scaler.transform(inputdatareshape)
 
+        st.write standardisedinput
 
-       #changng the input data to numpy array
-       inputdatanumpyarray = np.asarray(inputdata)
+        prediction = classifier.predict(standardisedinput)
 
-       #reshape the array as we predict one instance
-       inputdatareshape = inputdatanumpyarray.reshape(1,-1)
-
-       #standardising the input data
-       standardisedinput = scaler.transform(inputdatareshape)
-
-       st.write standardisedinput
-
-       prediction = classifier.predict(standardisedinput)
-
-       print(prediction)
-
-
+        st.write prediction
 
         if prediction[0] == 0:
           malariadiagnosis = "Congrats, you are free!"
