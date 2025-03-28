@@ -47,7 +47,7 @@ with col2:
 with col3:
         gestationalage= st.text_input('GestAge')
 with col1:
-        pastmalaria = st.text_input('PastMalaria')
+        pastmalaria = 1 if st.checkbox('Past Malaria?') else 0
 with col2:
         # inputarea = st.checkbox("Check for yes")
         # area = 1 if yes_no_choice else 0
