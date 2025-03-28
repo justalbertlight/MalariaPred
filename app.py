@@ -38,40 +38,25 @@ malariamodel = pickle.load(open(f'{working_dir}/saved_models/malariamodelnew.sav
 st.title('Malaria in Pregnancy Prediction using Machine Learning')
 
     # getting the input data from the user
-col1, col2, col3 = st.columns(3)
 
-with col1:
-        age = st.number_input('Age', min_value=15, max_value=50, step=1)
-with col2:
-        gravida = st.number_input('Gravida', min_value=0, max_value=20, step=1)
-with col3:
-        gestationalage = st.number_input('Gestational Age (months)', min_value=1, max_value=9, step=1)
-with col1:
-        pastmalaria = st.radio("Past Malaria?", 
+
+age = st.number_input('Age', min_value=15, max_value=50, step=1)
+gravida = st.number_input('Gravida', min_value=1, max_value=20, step=1)
+gestationalage = st.number_input('Gestational Age (months)', min_value=1, max_value=9, step=1)
+pastmalaria = st.radio("Past Malaria?", 
                            ["No", "Yes", "Not Sure"], 
                            index=0)  # Default: "No"
-with col2:
-        area = 1 if st.checkbox('Area?') else 0
-with col3:
-        fever = 1 if st.checkbox('Fever?') else 0
-with col1:
-        bodyaches = 1 if st.checkbox('Body Aches?') else 0
-with col2:
-        chills = 1 if st.checkbox('Chills?') else 0
-with col3:
-        difficulty = 1 if st.checkbox('Difficulty Breathing?') else 0
-with col1:
-        highfever = 1 if st.checkbox('High Fever?') else 0
-with col2:
-        profuse = 1 if st.checkbox('Profuse Sweating?') else 0
-with col3:
-        vomiting = 1 if st.checkbox('Vomiting?') else 0
-with col1:
-        severeheadache = 1 if st.checkbox('Severe Headache?') else 0
-with col2:
-        severechills = 1 if st.checkbox('Severe Chills?') else 0
-with col3:
-        howoften = st.radio("How often do you get tested?", 
+area = 1 if st.checkbox('Area?') else 0
+fever = 1 if st.checkbox('Fever?') else 0
+bodyaches = 1 if st.checkbox('Body Aches?') else 0
+chills = 1 if st.checkbox('Chills?') else 0
+difficulty = 1 if st.checkbox('Difficulty Breathing?') else 0
+highfever = 1 if st.checkbox('High Fever?') else 0
+profuse = 1 if st.checkbox('Profuse Sweating?') else 0
+vomiting = 1 if st.checkbox('Vomiting?') else 0
+severeheadache = 1 if st.checkbox('Severe Headache?') else 0
+severechills = 1 if st.checkbox('Severe Chills?') else 0
+howoften = st.radio("How often do you get tested?", 
                         ["Never", "Occasionally", "Frequently"], 
                         index=0)  # Default: "Never"
 # Convert "Past Malaria" to numerical values
