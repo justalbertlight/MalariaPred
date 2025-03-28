@@ -27,7 +27,7 @@ malariamodel = pickle.load(open(f'{working_dir}/saved_models/malariamodelnew.sav
 
 # page title
 st.title('Prediction of Prevalence of Malaria in Pregnancy using Machine Learning Technique')
-
+st.caption("Developed by Ogunyemi Albert Anu | Matric No: 2023000807")
 # getting the input data from the user
 age = st.number_input('Age', min_value=15, max_value=50, step=1)
 gravida = st.number_input('Gravida(Number of times of pregnancy)', min_value=1, max_value=20, step=1)
@@ -70,24 +70,26 @@ if st.button('Malaria Test Result'):
         inputdata = [age, gravida, gestationalage, pastmalaria_value, area, fever, bodyaches, chills, difficulty, highfever, profuse, vomiting, severeheadache, severechills, howoften_value]
 
         inputdata = [float(x) for x in inputdata]
-        
-  
-        # #changng the input data to numpy array
-        # inputdatanumpyarray = np.asarray(inputdata)
 
-        # #reshape the array as we predict one instance
-        # inputdatareshape = inputdatanumpyarray.reshape(1,-1)
 
-        
         prediction = malariamodel.predict([inputdata])
 
         st.write(prediction)
-  
-        if (prediction[0]) == 0:
-          malariadiagnosis = "No malaria!"
-        elif (prediction[0]) == 1:
-          malariadiagnosis = "You might have severe malaria"
+        if prediction[0] == 0:
+          malariadiagnosis = "Your result **suggests** no malaria. However, if symptoms persist or worsen, consider further medical evaluation to rule out other conditions."
+        elif prediction[0] == 1:
+          malariadiagnosis = "There is a **high probability** that you have severe malaria. It is advisable to seek **urgent** medical attention for proper diagnosis and treatment."
         else:
-          malariadiagnosis = "You might have uncomplicated malaria"
+          malariadiagnosis = "Your symptoms **likely indicate** uncomplicated malaria. Early treatment is recommended to prevent complications. Monitor your health and consult a doctor if symptoms persist."
+
+
+
+  
+        #if (prediction[0]) == 0:
+        #  malariadiagnosis = "No malaria!"
+        #elif (prediction[0]) == 1:
+        #  malariadiagnosis = "You might have severe malaria"
+        #else:
+        # malariadiagnosis = "You might have uncomplicated malaria"
        
 st.success(malariadiagnosis)
