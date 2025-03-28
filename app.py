@@ -37,6 +37,7 @@ pastmalaria = st.radio("Have you had malaria in the past?",
                            index=0)  # Default: "No"
 area = 1 if st.checkbox('Do you live in an area where mosquitoes are common?') else 0
 
+st.subheader("Check all symptoms that apply. Leaving unchecked means you do not have the symptom.")
 fever = 1 if st.checkbox('Fever?') else 0
 bodyaches = 1 if st.checkbox('Body Aches?') else 0
 chills = 1 if st.checkbox('Chills?') else 0
