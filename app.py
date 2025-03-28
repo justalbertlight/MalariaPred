@@ -22,7 +22,7 @@ working_dir = os.path.dirname(os.path.abspath(__file__))
 
 # loading the saved models
 
-malariamodel = pickle.load(open(f'{working_dir}/saved_models/malariamodelone.sav', 'rb'))
+malariamodel = pickle.load(open(f'{working_dir}/saved_models/malariamodelnew.sav', 'rb'))
 
 #heart_disease_model = pickle.load(open(f'{working_dir}/saved_models/heart_disease_model.sav', 'rb'))
 
@@ -82,17 +82,24 @@ if st.button('Malaria Test Result'):
         inputdata = [age, gravida, gestationalage, pastmalaria, area, fever, bodyaches, chills, difficulty, highfever, profuse, vomiting, severeheadache, severechills, howoften]
 
         inputdata = [float(x) for x in inputdata]
+        
+  
+        #changng the input data to numpy array
+        inputdatanumpyarray = np.asarray(inputdata)
+
+        #reshape the array as we predict one instance
+        inputdatareshape = inputdatanumpyarray.reshape(1,-1)
 
         
-        prediction = malariamodel.predict([inputdata])
+        prediction = malariamodelnew.predict([inputdatareshape])
 
         st.write(prediction)
-
-        if prediction[0] == 0:
-          malariadiagnosis = "Congrats, you are free!"
-        elif prediction[0] == 1:
-          malariadiagnosis = "You might have malaria"
+  
+        if (prediction[0]) == 0:
+          malariadiagnosis = "No malaria!"
+        elif (prediction[0]) == 1:
+          malariadiagnosis = "You might have severe malaria"
         else:
-          malariadiagnosis = "You really have malaria"
+          malariadiagnosis = "You might have uncomplicated malaria"
        
 st.success(malariadiagnosis)
