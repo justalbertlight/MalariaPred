@@ -84,14 +84,14 @@ if st.button('Malaria Test Result'):
         inputdata = [float(x) for x in inputdata]
         
   
-        #changng the input data to numpy array
-        inputdatanumpyarray = np.asarray(inputdata)
+        # #changng the input data to numpy array
+        # inputdatanumpyarray = np.asarray(inputdata)
 
-        #reshape the array as we predict one instance
-        inputdatareshape = inputdatanumpyarray.reshape(1,-1)
+        # #reshape the array as we predict one instance
+        # inputdatareshape = inputdatanumpyarray.reshape(1,-1)
 
         
-        prediction = malariamodel.predict([inputdatareshape])
+        prediction = malariamodel.predict([inputdata])
 
         st.write(prediction)
   
