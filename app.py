@@ -49,9 +49,9 @@ with col3:
 with col1:
         pastmalaria = st.text_input('PastMalaria')
 with col2:
-        inputarea = st.checkbox("Check for yes")
-        area = 1 if yes_no_choice else 0
-        #area = st.text_input('Area')
+        # inputarea = st.checkbox("Check for yes")
+        # area = 1 if yes_no_choice else 0
+        area = st.text_input('Area')
 with col3:
         fever = st.text_input('Fever')
 with col1:
