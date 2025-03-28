@@ -91,7 +91,7 @@ if st.button('Malaria Test Result'):
         inputdatareshape = inputdatanumpyarray.reshape(1,-1)
 
         
-        prediction = malariamodelnew.predict([inputdatareshape])
+        prediction = malariamodel.predict([inputdatareshape])
 
         st.write(prediction)
   
