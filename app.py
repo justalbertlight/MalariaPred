@@ -41,13 +41,15 @@ st.title('Malaria in Pregnancy Prediction using Machine Learning')
 col1, col2, col3 = st.columns(3)
 
 with col1:
-        age = st.number_input('Age(How old are you?)')
+        age = st.number_input('Age', min_value=15, max_value=50, step=1)
 with col2:
-        gravida = st.number_input('Gravida (How many times have you been pregnant?)')
+        gravida = st.number_input('Gravida', min_value=0, max_value=20, step=1)
 with col3:
-        gestationalage= st.number_input('Gestational Age (How many months?)')
+        gestationalage = st.number_input('Gestational Age (months)', min_value=1, max_value=9, step=1)
 with col1:
-        pastmalaria = 1 if st.checkbox('Past Malaria?') else 0
+        pastmalaria = st.radio("Past Malaria?", 
+                           ["No", "Yes", "Not Sure"], 
+                           index=0)  # Default: "No"
 with col2:
         area = 1 if st.checkbox('Area?') else 0
 with col3:
@@ -69,17 +71,26 @@ with col1:
 with col2:
         severechills = 1 if st.checkbox('Severe Chills?') else 0
 with col3:
-        howoften = st.text_input('How often')
+        howoften = st.radio("How often do you get tested?", 
+                        ["Never", "Occasionally", "Frequently"], 
+                        index=0)  # Default: "Never"
+# Convert "Past Malaria" to numerical values
+pastmalaria_map = {"No": 0, "Yes": 1, "Not Sure": 2}
+pastmalaria_value = pastmalaria_map[pastmalaria]
+
+# Convert "How often" to numerical values
+howoften_map = {"Never": 0, "Occasionally": 1, "Frequently": 2}
+howoften_value = howoften_map[howoften]
 
 
-    # code for Prediction
+# code for Prediction
 malariadiagnosis = ''
 
-    # creating a button for Prediction
+# creating a button for Prediction
 
 if st.button('Malaria Test Result'):
 
-        inputdata = [age, gravida, gestationalage, pastmalaria, area, fever, bodyaches, chills, difficulty, highfever, profuse, vomiting, severeheadache, severechills, howoften]
+        inputdata = [age, gravida, gestationalage, pastmalaria_value, area, fever, bodyaches, chills, difficulty, highfever, profuse, vomiting, severeheadache, severechills, howoften_value]
 
         inputdata = [float(x) for x in inputdata]
         
