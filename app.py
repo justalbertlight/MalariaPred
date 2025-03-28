@@ -41,35 +41,33 @@ st.title('Malaria in Pregnancy Prediction using Machine Learning')
 col1, col2, col3 = st.columns(3)
 
 with col1:
-        age = st.text_input('Age')
+        age = st.number_input('Age(How old are you?)')
 with col2:
-        gravida = st.text_input('Gravida')
+        gravida = st.number_input('Gravida (How many times have you been pregnant?)')
 with col3:
-        gestationalage= st.text_input('GestAge')
+        gestationalage= st.number_input('Gestational Age (How many months?)')
 with col1:
         pastmalaria = 1 if st.checkbox('Past Malaria?') else 0
 with col2:
-        # inputarea = st.checkbox("Check for yes")
-        # area = 1 if yes_no_choice else 0
-        area = st.text_input('Area')
+        area = 1 if st.checkbox('Area?') else 0
 with col3:
-        fever = st.text_input('Fever')
+        fever = 1 if st.checkbox('Fever?') else 0
 with col1:
-        bodyaches= st.text_input('bodyaches')
+        bodyaches = 1 if st.checkbox('Body Aches?') else 0
 with col2:
-        chills = st.text_input('chills')
+        chills = 1 if st.checkbox('Chills?') else 0
 with col3:
-        difficulty = st.text_input('difficulty')
+        difficulty = 1 if st.checkbox('Difficulty Breathing?') else 0
 with col1:
-        highfever = st.text_input('high fever')
+        highfever = 1 if st.checkbox('High Fever?') else 0
 with col2:
-        profuse = st.text_input('Profuse Sweating')
+        profuse = 1 if st.checkbox('Profuse Sweating?') else 0
 with col3:
-        vomiting = st.text_input('Vomiting')
+        vomiting = 1 if st.checkbox('Vomiting?') else 0
 with col1:
-        severeheadache = st.text_input('Severe Headache')
+        severeheadache = 1 if st.checkbox('Severe Headache?') else 0
 with col2:
-        severechills = st.text_input('Severe chills')
+        severechills = 1 if st.checkbox('Severe Chills?') else 0
 with col3:
         howoften = st.text_input('How often')
 
