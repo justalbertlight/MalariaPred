@@ -35,7 +35,7 @@ gestationalage = st.number_input('Gestational Age (How many months?)', min_value
 pastmalaria = st.radio("Have you had malaria in the past?", 
                            ["No", "Yes", "Not Sure"], 
                            index=0)  # Default: "No"
-area = 1 if st.checkbox('Do you live in an area where mosquitoes are common?') else 0
+area = 1 if st.checkbox('Check this if you live in an area where mosquitoes are common') else 0
 
 st.subheader("Check all symptoms that apply. Leaving unchecked means you do not have the symptom.")
 fever = 1 if st.checkbox('Fever?') else 0
@@ -76,11 +76,11 @@ if st.button('Malaria Test Result'):
 
         st.write(prediction)
         if prediction[0] == 0:
-          malariadiagnosis = "Your result **suggests** no malaria. However, if symptoms persist or worsen, consider further medical evaluation to rule out other conditions."
+          malariadiagnosis = "NO-MALARIA \n Your result **suggests** no malaria. However, if symptoms persist or worsen, consider further medical evaluation to rule out other conditions."
         elif prediction[0] == 1:
-          malariadiagnosis = "There is a **high probability** that you have severe malaria. It is advisable to seek **urgent** medical attention for proper diagnosis and treatment."
+          malariadiagnosis = "SEVERE MALARIA \n There is a **high probability** that you have severe malaria. It is advisable to seek **urgent** medical attention for proper diagnosis and treatment."
         else:
-          malariadiagnosis = "Your symptoms **likely indicate** uncomplicated malaria. Early treatment is recommended to prevent complications. Monitor your health and consult a doctor if symptoms persist."
+          malariadiagnosis = "UNCOMPLICATED MALARIA \n Your symptoms **likely indicate** uncomplicated malaria. Early treatment is recommended to prevent complications. Monitor your health and consult a doctor if symptoms persist."
 
 
 
