@@ -74,13 +74,13 @@ if st.button('Malaria Test Result'):
 
         prediction = malariamodel.predict([inputdata])
 
-        st.write(prediction)
+        st.caption('Result:')
         if prediction[0] == 0:
-          malariadiagnosis = "**Result: NO-MALARIA **\n Your result **suggests** no malaria. However, if symptoms persist or worsen, consider further medical evaluation to rule out other conditions."
+          malariadiagnosis = "NO-MALARIA: Your result **suggests** no malaria. However, if symptoms persist or worsen, consider further medical evaluation to rule out other conditions."
         elif prediction[0] == 1:
-          malariadiagnosis = "**Result: SEVERE MALARIA **\n There is a **high probability** that you have severe malaria. It is advisable to seek **urgent** medical attention for proper diagnosis and treatment."
+          malariadiagnosis = "SEVERE MALARIA: There is a **high probability** that you have severe malaria. It is advisable to seek **urgent** medical attention for proper diagnosis and treatment."
         else:
-          malariadiagnosis = "**Result: UNCOMPLICATED MALARIA **\n Your symptoms **likely indicate** uncomplicated malaria. Early treatment is recommended to prevent complications. Monitor your health and consult a doctor if symptoms persist."
+          malariadiagnosis = "UNCOMPLICATED MALARIA: Your symptoms **likely indicate** uncomplicated malaria. Early treatment is recommended to prevent complications. Monitor your health and consult a doctor if symptoms persist."
 
 
 
